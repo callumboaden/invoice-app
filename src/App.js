@@ -1,12 +1,12 @@
 import Sidebar from "./components/Sidebar";
-import InvoiceList from "./components/InvoiceList";
+import InvoiceListContainer from "./components/InvoiceListContainer";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <Sidebar></Sidebar>
-      <InvoiceList></InvoiceList>
+      <InvoiceListContainer></InvoiceListContainer>
     </div>
   );
 }

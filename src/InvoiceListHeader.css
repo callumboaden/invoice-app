@@ -8,3 +8,12 @@
     align-items: center;
     justify-content: space-between;
 }
+.InvoiceList-total {
+    color: #BCBCC8;
+    font-weight: 700;
+}
+.InvoiceList-headerOptions label {
+    color: #09090E;
+    font-weight: 700;
+    margin-right: 8px;
+}

@@ -6,7 +6,7 @@ function InvoiceListHeader() {
     <header className="InvoiceList-header">
       <div class="InvoiceList-headerTitle">
         <h1>Invoices</h1>
-        <p>There are 7 total invoices</p>
+        <p className="InvoiceList-total">There are 7 total invoices</p>
       </div>
       <div class="InvoiceList-headerOptions">
         <label for="filters">Filter by status</label>

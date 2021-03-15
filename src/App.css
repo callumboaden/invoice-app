@@ -5,6 +5,7 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
 }
 
 h1, h2, h3, h4, h5, p {
@@ -20,4 +21,10 @@ button  {
   background: none;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
