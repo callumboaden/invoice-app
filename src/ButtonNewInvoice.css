@@ -1,0 +1,22 @@
+.Button-newInvoice {
+    background: #7D5EFA;
+    color: #FFFFFF;
+    padding: 12px 20px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.Button-newInvoice span {
+    width: 26px;
+    height: 26px;
+    margin-right: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; 
+    background: #FFFFFF;
+    color: #7D5EFA;
+    font-size: 17px;
+}

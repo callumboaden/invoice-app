@@ -1,0 +1,10 @@
+.InvoiceList-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.InvoiceList-headerOptions {
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+}
