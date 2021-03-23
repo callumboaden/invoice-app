@@ -1,48 +1,50 @@
 .Sidebar {
-    width: 100px;
-    height: 100vh;
-    background: #373B54;   
-    border-radius: 0px 30px 30px 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  width: 100px;
+  height: 100vh;
+  background: #373b54;
+  border-radius: 0px 30px 30px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
 }
 .Sidebar-logo {
-    position: relative;
-    width: 100px;
-    height: 100px;
+  position: relative;
+  width: 100px;
+  height: 100px;
 }
 .Sidebar-logo-img {
-    position: absolute;
-    z-index: 9;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 9;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .box-1 {
-    width: 100px;
-    height: 100px;
-    background: #7D5EFA;
-    border-radius: 0px 30px 0px 0px;
+  width: 100px;
+  height: 100px;
+  background: #7d5efa;
+  border-radius: 0px 30px 0px 0px;
 }
 .box-2 {
-    width: 100px;
-    height: 50px;
-    background: #9278FF;
-    position: absolute;
-    top: 50px;
-    border-radius: 30px 0px 0px 0px;
-} 
+  width: 100px;
+  height: 50px;
+  background: #9278ff;
+  position: absolute;
+  top: 50px;
+  border-radius: 30px 0px 0px 0px;
+}
 .Sidebar-bottom {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .Sidebar-divider {
-    width: 100px;
-    height: 2px;
-    background: #40445D;
+  width: 100px;
+  height: 2px;
+  background: #40445d;
 }
 .Sidebar-bottom img {
-    padding: 20px 0;
+  padding: 20px 0;
 }

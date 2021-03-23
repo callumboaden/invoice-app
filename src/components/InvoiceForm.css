@@ -1,0 +1,24 @@
+.InvoiceForm {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: #fff;
+  margin-left: 100px;
+  padding: 2rem;
+  border-radius: 0 30px 0 0;
+}
+
+.InvoiceForm-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -1rem;
+}
+
+.InvoiceForm-item {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
