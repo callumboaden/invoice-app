@@ -1,8 +1,11 @@
 import "../ButtonNewInvoice.css";
 
-function ButtonNewInvoice() {
+function ButtonNewInvoice({ handleDrawer }) {
   return (
-    <button class="btn Button-newInvoice">
+    <button
+      onClick={() => handleDrawer(true)}
+      className="btn Button-newInvoice"
+    >
       <span>+</span> New Invoice
     </button>
   );

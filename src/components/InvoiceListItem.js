@@ -1,10 +1,10 @@
 import "../InvoiceListItem.css";
 
-function InvoiceListItem({ invoiceDate, clientName, itemTotal }) {
+function InvoiceListItem({ invoiceId, invoiceDate, clientName, itemTotal }) {
   return (
     <li className="InvoiceList-listItem">
       <div className="Invoice-id">
-        #<span>RT3080</span>
+        #<span>{invoiceId}</span>
       </div>
       <div className="Invoice-dueDate">{invoiceDate}</div>
       <div className="Invoice-name">{clientName}</div>
