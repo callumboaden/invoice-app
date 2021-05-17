@@ -10,11 +10,14 @@
   padding: 2rem;
   border-radius: 0 30px 0 0;
   overflow: auto;
-  display: none;
+  /*  display: none; */
+  transition: 0.3s;
+  transform: translateX(-400%);
 }
 
 .InvoiceForm.active {
   display: block;
+  transform: translateX(0);
 }
 
 .InvoiceForm-group {

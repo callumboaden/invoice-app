@@ -13,10 +13,27 @@ export default function Invoice() {
 
   useEffect(() => {
     const [invoice] = getInvoice();
-    setState(invoice)
-  })
+    setState(invoice);
+  });
 
-    const { invoiceId, billerStreetAddress, billerCity, billerPostCode, billerCountry, clientName, clientEmail, clientStreetAddress, clientCity, clientPostCode, clientCountry,   invoiceDueDate, itemName, itemQuantity, itemPrice, itemTotal    } = state;
+  const {
+    invoiceId,
+    billerStreetAddress,
+    billerCity,
+    billerPostCode,
+    billerCountry,
+    clientName,
+    clientEmail,
+    clientStreetAddress,
+    clientCity,
+    clientPostCode,
+    clientCountry,
+    invoiceDueDate,
+    itemName,
+    itemQuantity,
+    itemPrice,
+    itemTotal,
+  } = state;
 
   return (
     <div className="Invoice-wrapper">
@@ -34,16 +51,18 @@ export default function Invoice() {
       <div className="Invoice-main">
         <div className="Invoice-main--header">
           <div>
-            <div className="id">
+            <div className="invoiceId">
               #<span>{invoiceId}</span>
             </div>
             <h3 className="description">Graphic Design</h3>
           </div>
           <div>
             <div className="biller-address">
-              <span>{billerStreetAddress} <br />
-              {billerCity} <br />
-              {billerPostCode} <br /> {billerCountry}</span>
+              <span>
+                {billerStreetAddress} <br />
+                {billerCity} <br />
+                {billerPostCode} <br /> {billerCountry}
+              </span>
             </div>
           </div>
         </div>
@@ -62,10 +81,12 @@ export default function Invoice() {
             <div>
               <h3>Bill to</h3>
               <div className="client-address">
-              <span className="client-name">{clientName}</span> <br />
-              <span>{clientStreetAddress} <br />
-              {clientCity} <br /> {clientPostCode} <br /> {clientCountry}</span>
-            </div>
+                <span className="client-name">{clientName}</span> <br />
+                <span>
+                  {clientStreetAddress} <br />
+                  {clientCity} <br /> {clientPostCode} <br /> {clientCountry}
+                </span>
+              </div>
             </div>
           </div>
           <div class="col">
@@ -76,21 +97,29 @@ export default function Invoice() {
           </div>
         </div>
         <div className="itemList">
-            <div className="header">
-                <div className="itemName"><h3>Item Name</h3></div>
-                <div className="itemQuantity"><h3>QTY</h3></div>
-                <div className="itemPrice"><h3>Price</h3></div>
-                <div className="itemTotal"><h3>Total</h3></div>
+          <div className="header">
+            <div className="itemName">
+              <h3>Item Name</h3>
             </div>
-            <div className="row">      
-                <div className="itemName">{itemName}</div>
-                <div className="itemQuantity">{itemQuantity}</div>
-                <div className="itemPrice">{itemPrice}</div>
-                <div className="itemTotal">{itemTotal}</div>
+            <div className="itemQuantity">
+              <h3>QTY</h3>
             </div>
+            <div className="itemPrice">
+              <h3>Price</h3>
+            </div>
+            <div className="itemTotal">
+              <h3>Total</h3>
+            </div>
+          </div>
+          <div className="row">
+            <div className="itemName">{itemName}</div>
+            <div className="itemQuantity">{itemQuantity}</div>
+            <div className="itemPrice">{itemPrice}</div>
+            <div className="itemTotal">{itemTotal}</div>
+          </div>
         </div>
         <div className="Invoice-footer">
-            <h3>Amount Due</h3> <div className="invoiceTotal">{itemTotal}</div>
+          <h3>Amount Due</h3> <div className="invoiceTotal">{itemTotal}</div>
         </div>
       </div>
     </div>

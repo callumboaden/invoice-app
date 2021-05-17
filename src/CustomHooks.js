@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { uid } from "uid";
 
 const useInvoiceForm = ({ onSubmit }) => {
   const [inputs, setInputs] = useState({});
   const handleSubmit = (event) => {
     if (event) {
       event.preventDefault();
-      onSubmit(inputs);
+      const obj = { ...inputs, invoiceId: uid() };
+      onSubmit(obj);
     }
   };
   const handleInputChange = (event) => {

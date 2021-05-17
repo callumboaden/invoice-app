@@ -5,16 +5,13 @@ import Invoice from "./components/Invoice";
 import data from "./data";
 import "./App.css";
 import { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   const [invoices, setInvoices] = useState(data);
   const [formDrawerIsOpen, setFormDrawerisOpen] = useState(false);
+
+  console.log(invoices);
 
   return (
     <Router>
@@ -42,7 +39,7 @@ function App() {
           </Route>
           <Route path="/:id" children={<Invoice />} />
         </Switch>
-       
+
         {formDrawerIsOpen ? (
           <div
             onClick={() => setFormDrawerisOpen(false)}

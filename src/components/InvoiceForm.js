@@ -9,6 +9,7 @@ export default function InvoiceForm({
   setInvoices,
 }) {
   const addInvoice = (inputs) => {
+    invoices.push(inputs);
     setInvoices((invoices) => [inputs, ...invoices]);
   };
 
@@ -168,7 +169,7 @@ export default function InvoiceForm({
       <div className="InvoiceForm-item">
         <label htmlFor="clientInvoiceDescription">Project Description</label>
         <input
-          type="date"
+          type="text"
           name="clientInvoiceDescription"
           id="clientInvoiceDescription"
           onChange={handleInputChange}
@@ -217,7 +218,7 @@ export default function InvoiceForm({
             type="number"
             name="clientItemTotal"
             id="clientItemTotal"
-            value={inputs.clientItemTotal}
+            value={inputs.clientItemQuantity * inputs.clientItemPrice}
             onChange={handleInputChange}
             required
           />
@@ -229,6 +230,13 @@ export default function InvoiceForm({
         className="InvoiceForm-cancelButton"
       >
         Cancel
+      </button>
+      <button
+        type="submit"
+        className="InvoiceForm-submitButton"
+        formnovalidate="formnovalidate"
+      >
+        Save as Draft
       </button>
       <button type="submit" className="InvoiceForm-submitButton">
         Submit
