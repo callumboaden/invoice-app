@@ -40,6 +40,10 @@
   background: #ffffff;
 }
 
+.Invoice-header .status span {
+  text-transform: capitalize;
+}
+
 .Invoice-main {
   padding: 2.5rem;
 }

@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import invoices from "../data";
 import "./Invoice.css";
 
-export default function Invoice() {
+export default function Invoice({
+  invoices,
+  handleDrawer,
+  formDrawerIsOpen,
+  handleEditing,
+  isEditing,
+}) {
   let { id } = useParams();
   const [state, setState] = useState({});
+
+  const editInvoice = () => {
+    handleDrawer(true);
+    handleEditing(state);
+  };
 
   const getInvoice = () => {
     return invoices.filter((invoice) => invoice.invoiceId === id);
@@ -33,6 +43,7 @@ export default function Invoice() {
     itemQuantity,
     itemPrice,
     itemTotal,
+    invoiceStatus,
   } = state;
 
   return (
@@ -40,10 +51,12 @@ export default function Invoice() {
       <Link to="/">Go back</Link>
       <div className="Invoice-header">
         <div className="status">
-          Status <span>Pending</span>
+          Status: <span>{invoiceStatus}</span>
         </div>
         <div className="btn-group">
-          <button className="btn btn-edit">Edit</button>
+          <button className="btn btn-edit" onClick={() => editInvoice()}>
+            Edit
+          </button>
           <button className="btn btn-delete">Delete</button>
           <button className="btn btn-markPaid">Mark as Paid</button>
         </div>

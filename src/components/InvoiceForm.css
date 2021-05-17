@@ -58,7 +58,14 @@
 }
 
 .InvoiceForm-cancelButton {
-  background: #ccc;
+  background: #000;
+  padding: 12px 20px;
+  border-radius: 30px;
+  color: #fff;
+}
+
+.InvoiceForm-submitDraftButton {
+  background: #666;
   padding: 12px 20px;
   border-radius: 30px;
   color: #fff;
@@ -70,6 +77,11 @@
   padding: 12px 20px;
   border-radius: 30px;
   color: #fff;
+}
+
+.InvoiceForm .button-group {
+  display: flex;
+  justify-content: space-between;
 }
 
 .InvoiceForm::-webkit-scrollbar {

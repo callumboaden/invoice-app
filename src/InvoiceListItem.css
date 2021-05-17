@@ -1,49 +1,63 @@
-
 .InvoiceList-listItem {
-    margin-bottom: 15px;
-    background: #FFFFFF;
-    height: 74px;
-    max-width: 100%;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 30px;
-    box-shadow: 0px 4px 14px 0px rgba(55,59,84,0.05);
-    
+  margin-bottom: 15px;
+  background: #ffffff;
+  height: 74px;
+  max-width: 100%;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-shadow: 0px 4px 14px 0px rgba(55, 59, 84, 0.05);
 }
 
 .InvoiceList-listItem div {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .Invoice-id {
-    color: #7C5CFB;
+  color: #7c5cfb;
 }
 
 .Invoice-id span {
-    color: #09090E;
+  color: #09090e;
 }
 
 .Invoice-dueDate,
 .Invoice-name {
-color: #C4C4C4;
+  color: #c4c4c4;
 }
 
 .Invoice-amount {
-    font-size: 18px;
-    color: #09090E;
+  font-size: 18px;
+  color: #09090e;
 }
 
 .InvoiceList-listItemRight {
-    display: flex; 
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 .Invoice-status {
-    padding: 14px 26px;
-    background: rgba(51, 216, 160, .1);
-
+  padding: 14px 26px;
+  background: rgba(51, 216, 160, 0.1);
+}
+.Invoice-status[data-status="draft"] {
+  background: #f3f3f5;
+}
+.Invoice-status[data-status="draft"] span {
+  color: #000;
 }
 .Invoice-status span {
-color: #33D8A0;
+  text-transform: capitalize;
+  color: #33d8a0;
+}
+.Invoice-status span:before {
+  content: "•";
+  font-size: 1.75rem;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 0;
+  padding-right: 5px;
+  position: relative;
+  top: -3px;
 }

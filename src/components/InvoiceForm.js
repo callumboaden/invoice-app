@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useInvoiceForm from "../CustomHooks";
 import "./InvoiceForm.css";
 
@@ -6,19 +6,21 @@ export default function InvoiceForm({
   handleDrawer,
   formDrawerIsOpen,
   invoices,
-  setInvoices,
+  addInvoice,
+  isEditing,
 }) {
-  const addInvoice = (inputs) => {
-    invoices.push(inputs);
-    setInvoices((invoices) => [inputs, ...invoices]);
-  };
+  const { inputs, handleInputChange, handleSubmit, setInputs } = useInvoiceForm(
+    {
+      onSubmit: (inputs) => {
+        handleDrawer(false);
+        addInvoice(inputs);
+      },
+    }
+  );
 
-  const { inputs, handleInputChange, handleSubmit } = useInvoiceForm({
-    onSubmit: (inputs) => {
-      handleDrawer(false);
-      addInvoice(inputs);
-    },
-  });
+  useEffect(() => {
+    return isEditing ? setInputs(isEditing) : "";
+  }, []);
 
   const isFormOpen = formDrawerIsOpen ? "active" : "";
 
@@ -224,23 +226,28 @@ export default function InvoiceForm({
           />
         </div>
       </div>
-      <button
-        onClick={() => handleDrawer(false)}
-        type="button"
-        className="InvoiceForm-cancelButton"
-      >
-        Cancel
-      </button>
-      <button
-        type="submit"
-        className="InvoiceForm-submitButton"
-        formnovalidate="formnovalidate"
-      >
-        Save as Draft
-      </button>
-      <button type="submit" className="InvoiceForm-submitButton">
-        Submit
-      </button>
+      <div class="button-group">
+        <button
+          onClick={() => handleDrawer(false)}
+          type="button"
+          className="InvoiceForm-cancelButton"
+        >
+          Cancel
+        </button>
+        <div>
+          <button
+            type="submit"
+            id="draft"
+            className="InvoiceForm-submitDraftButton"
+            formnovalidate="formnovalidate"
+          >
+            Save as Draft
+          </button>
+          <button type="submit" className="InvoiceForm-submitButton">
+            Submit
+          </button>
+        </div>
+      </div>
     </form>
   );
 }

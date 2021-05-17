@@ -6,7 +6,10 @@ function InvoiceList({ invoices }) {
   return (
     <ul className="InvoiceList">
       {invoices.map(
-        ({ invoiceId, invoiceDate, clientName, itemTotal }, index) => (
+        (
+          { invoiceId, invoiceDate, clientName, itemTotal, invoiceStatus },
+          index
+        ) => (
           <Link to={`/${invoiceId}`}>
             <InvoiceListItem
               key={index}
@@ -14,6 +17,7 @@ function InvoiceList({ invoices }) {
               invoiceDate={invoiceDate}
               clientName={clientName}
               itemTotal={itemTotal}
+              invoiceStatus={invoiceStatus}
             ></InvoiceListItem>
           </Link>
         )

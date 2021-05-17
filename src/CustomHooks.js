@@ -6,7 +6,10 @@ const useInvoiceForm = ({ onSubmit }) => {
   const handleSubmit = (event) => {
     if (event) {
       event.preventDefault();
-      const obj = { ...inputs, invoiceId: uid() };
+      const status =
+        event.nativeEvent.submitter.id === "draft" ? "draft" : "pending";
+
+      const obj = { ...inputs, invoiceId: uid(), invoiceStatus: status };
       onSubmit(obj);
     }
   };
@@ -21,6 +24,7 @@ const useInvoiceForm = ({ onSubmit }) => {
     handleSubmit,
     handleInputChange,
     inputs,
+    setInputs,
   };
 };
 export default useInvoiceForm;

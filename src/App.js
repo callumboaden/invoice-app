@@ -10,8 +10,11 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 function App() {
   const [invoices, setInvoices] = useState(data);
   const [formDrawerIsOpen, setFormDrawerisOpen] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
-  console.log(invoices);
+  const addInvoice = (inputs) => {
+    setInvoices((invoices) => [inputs, ...invoices]);
+  };
 
   return (
     <Router>
@@ -27,7 +30,8 @@ function App() {
           formDrawerIsOpen={formDrawerIsOpen}
           handleDrawer={setFormDrawerisOpen}
           invoices={invoices}
-          setInvoices={setInvoices}
+          addInvoice={addInvoice}
+          isEditing={isEditing}
         />
         <Switch>
           <Route exact path="/">
@@ -37,7 +41,18 @@ function App() {
               formDrawerIsOpen={formDrawerIsOpen}
             />
           </Route>
-          <Route path="/:id" children={<Invoice />} />
+          <Route
+            path="/:id"
+            children={
+              <Invoice
+                invoices={invoices}
+                handleDrawer={setFormDrawerisOpen}
+                handleEditing={setIsEditing}
+                isEditing={isEditing}
+                formDrawerIsOpen={formDrawerIsOpen}
+              />
+            }
+          />
         </Switch>
 
         {formDrawerIsOpen ? (
