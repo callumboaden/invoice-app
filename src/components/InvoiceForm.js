@@ -8,25 +8,27 @@ export default function InvoiceForm({
   invoices,
   addInvoice,
   isEditing,
+  currentInvoice,
+  handleDrawerClose,
+  editInvoice,
 }) {
-  const { inputs, handleInputChange, handleSubmit, setInputs } = useInvoiceForm(
-    {
-      onSubmit: (inputs) => {
-        handleDrawer(false);
-        addInvoice(inputs);
-      },
-    }
-  );
-
-  useEffect(() => {
-    return isEditing ? setInputs(isEditing) : "";
-  }, []);
+  const { inputs, handleInputChange, handleSubmit } = useInvoiceForm({
+    currentInvoice,
+    onSubmit: (inputs, action = "new") => {
+      handleDrawer(false);
+      if (action === "edit") {
+        console.log("edit invoice");
+        return editInvoice(inputs);
+      }
+      addInvoice(inputs);
+    },
+  });
 
   const isFormOpen = formDrawerIsOpen ? "active" : "";
 
   return (
     <form className={`InvoiceForm ${isFormOpen}`} onSubmit={handleSubmit}>
-      <h2>New Invoice</h2>
+      <h2>{isEditing ? `Edit ${inputs.invoiceId}` : "New Invoice"}</h2>
       <h3>Bill From</h3>
       <div className="InvoiceForm-item">
         <label htmlFor="billerStreetAddress">Street Address</label>
@@ -228,24 +230,40 @@ export default function InvoiceForm({
       </div>
       <div class="button-group">
         <button
-          onClick={() => handleDrawer(false)}
+          onClick={() => handleDrawerClose()}
           type="button"
           className="InvoiceForm-cancelButton"
         >
           Cancel
         </button>
         <div>
-          <button
-            type="submit"
-            id="draft"
-            className="InvoiceForm-submitDraftButton"
-            formnovalidate="formnovalidate"
-          >
-            Save as Draft
-          </button>
-          <button type="submit" className="InvoiceForm-submitButton">
-            Submit
-          </button>
+          {!isEditing ? (
+            <>
+              <button
+                type="submit"
+                id="draft"
+                className="InvoiceForm-submitDraftButton"
+                formNoValidate="formnovalidate"
+              >
+                Save as Draft
+              </button>
+              <button
+                id="new"
+                type="submit"
+                className="InvoiceForm-submitButton"
+              >
+                Submit
+              </button>
+            </>
+          ) : (
+            <button
+              type="submit"
+              id="edit"
+              className="InvoiceForm-submitButton"
+            >
+              Save Changes
+            </button>
+          )}
         </div>
       </div>
     </form>

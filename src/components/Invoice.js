@@ -8,14 +8,10 @@ export default function Invoice({
   formDrawerIsOpen,
   handleEditing,
   isEditing,
+  handleEditInvoice,
 }) {
   let { id } = useParams();
   const [state, setState] = useState({});
-
-  const editInvoice = () => {
-    handleDrawer(true);
-    handleEditing(state);
-  };
 
   const getInvoice = () => {
     return invoices.filter((invoice) => invoice.invoiceId === id);
@@ -54,7 +50,10 @@ export default function Invoice({
           Status: <span>{invoiceStatus}</span>
         </div>
         <div className="btn-group">
-          <button className="btn btn-edit" onClick={() => editInvoice()}>
+          <button
+            className="btn btn-edit"
+            onClick={() => handleEditInvoice(state)}
+          >
             Edit
           </button>
           <button className="btn btn-delete">Delete</button>

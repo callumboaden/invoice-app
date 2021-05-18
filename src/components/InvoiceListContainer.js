@@ -3,7 +3,6 @@ import InvoiceListHeader from "./InvoiceListHeader";
 import "../InvoiceListContainer.css";
 
 function InvoiceListContainer({ invoices, handleDrawer, formDrawerIsOpen }) {
-  console.log(invoices);
   return (
     <div className="InvoiceList-container">
       <InvoiceListHeader
