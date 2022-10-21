@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   const [invoices, setInvoices] = useState(data);
   const [formDrawerIsOpen, setFormDrawerisOpen] = useState(false);
-  const [isEditing, setIsEditing] = useState({});
+  const [isEditing, setIsEditing] = useState(false);
   const [currentInvoice, setCurrentInvoice] = useState({});
 
   const handleEditInvoice = (invoice) => {
@@ -38,6 +38,8 @@ function App() {
 
     updatedInvoiceList[index] = updatedInvoice;
     setInvoices(() => updatedInvoiceList);
+    setIsEditing(false);
+    setCurrentInvoice({});
   };
 
   const handleDrawerClose = () => {

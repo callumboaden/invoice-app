@@ -5,7 +5,6 @@ import "./InvoiceForm.css";
 export default function InvoiceForm({
   handleDrawer,
   formDrawerIsOpen,
-  invoices,
   addInvoice,
   isEditing,
   currentInvoice,
@@ -128,7 +127,7 @@ export default function InvoiceForm({
             type="text"
             name="clientPostcode"
             id="clientPostcode"
-            value={inputs.clientPostcode}
+            value={inputs.clientPostCode}
             onChange={handleInputChange}
             required
           />
